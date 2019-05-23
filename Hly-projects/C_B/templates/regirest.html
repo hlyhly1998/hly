@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li role="presentation" ><a href="{% url 'cb:home' %}">首頁</a></li>
+            <li role="presentation" class="active"> <a href="{% url 'cb:new_forms' %}">注冊</a></li>
+            <li role="presentation"><a href="#">登錄</a></li>
+        </ul>
+
+
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <form action="{% url 'cb:new_forms' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="注冊">
+        </form>
+    </div>
+{% endblock %}
